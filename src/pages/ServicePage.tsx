@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { services, SITE, PHONE, PHONE_LABEL, WHATSAPP } from "@/data/services";
 import NotFound from "./NotFound";
+import InteriorsFitOuts from "./InteriorsFitOuts";
 
 const steps = [
   ["Share your requirement", "Call, message or fill the form."],
@@ -46,6 +47,7 @@ const ServicePage = () => {
   }, [s]);
 
   if (!s) return <NotFound />;
+  if (s.slug === "interiors-fit-outs") return <InteriorsFitOuts />;
   const Icon = s.icon;
   const others = services.filter((x) => x.slug !== s.slug);
   const cta = "bg-accent text-black hover:bg-accent/90 font-semibold";
